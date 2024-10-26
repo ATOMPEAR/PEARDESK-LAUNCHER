@@ -8,8 +8,8 @@
     "start": "electron .",
     "dev": "npm run sass:compile && nodemon",
     "build": "electron-builder",
-    "sass:compile": "sass resource/views/source/sass/index.sass:resource/views/source/css/index.css --style expanded --source-map && sass resource/views/source/sass/index.sass:resource/views/source/css/index.min.css --style compressed --no-source-map",
-    "sass:watch": "sass --watch resource/views/source/sass/index.sass:resource/views/source/css/index.css --style expanded --source-map",
+    "sass:compile": "sass resource/views/source/sass/index.sass:resource/views/source/css/index.css --style expanded --source-map && sass resource/views/source/sass/index.sass:resource/views/source/css/index.min.css --style compressed --no-source-map && sass resource/views/source/sass/fonts.sass:resource/views/source/css/fonts.css --style expanded --source-map && sass resource/views/source/sass/fonts.sass:resource/views/source/css/fonts.min.css --style compressed --no-source-map",
+    "sass:watch": "sass --watch resource/views/source/sass:resource/views/source/css --style expanded --source-map",
     "sass:build": "npm run sass:compile"
   },
   "dependencies": {
