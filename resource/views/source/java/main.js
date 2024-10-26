@@ -1,9 +1,14 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, screen } = require('electron')
 const path = require('path')
 
 let mainWindow
 
 function createWindow() {
+    // Get primary display dimensions
+    const primaryDisplay = screen.getPrimaryDisplay()
+    const { width: screenWidth, height: screenHeight } = primaryDisplay.workAreaSize
+
+    // Create the window
     mainWindow = new BrowserWindow({
         width: 400,
         height: 600,
@@ -16,6 +21,13 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js')
         }
     })
+
+    // Calculate position for bottom right
+    const xPosition = screenWidth - 400
+    const yPosition = screenHeight - 600
+
+    // Set window position
+    mainWindow.setPosition(xPosition, yPosition)
 
     mainWindow.loadFile(path.join(__dirname, '..', '..', 'index.html'))
 }
