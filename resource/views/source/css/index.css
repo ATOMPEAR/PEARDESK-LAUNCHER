@@ -120,12 +120,16 @@ body {
 .main-content1 .search-form .search-input {
   flex: 1;
   height: 28px;
+  text-transform: uppercase;
   font-family: "Terminus";
   background: #222222;
   border: none;
   padding: 0 8px;
   color: #ffffff;
   outline: none;
+}
+.main-content1 .search-form .search-input:focus {
+  color: #01a2ff;
 }
 .main-content1 .content-wrapper {
   flex: 1;
