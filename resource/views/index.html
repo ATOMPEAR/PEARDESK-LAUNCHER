@@ -5,12 +5,37 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com; script-src 'self' https://kit.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com">
     
     <title>Electron App</title>
-
     <link rel="stylesheet" href="./source/css/index.min.css">
     <script src="https://kit.fontawesome.com/dbd1c218fe.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <nav class="titlebar" role="navigation" aria-label="Window controls">
+        <div class="titlebar-left">
+            <div class="window-controls">
+                <button class="window-close"></button>
+                <button class="window-minimize"></button>
+            </div>
+            <button class="toggle-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+        <button class="toggle-start">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+    <main class="main-content1 active">
+        <form class="search-form">
+            <input type="text" class="search-input" placeholder="Search..." aria-label="Search">
+        </form>
+        <div class="content-wrapper">
+            <div class="programs-list"></div>
+            <div class="systems-menu"></div>
+        </div>
+        <div class="drive-info"></div>
+    </main>
+    <main class="main-content2">
+        <h1>Content 2</h1>
+    </main>
     
     <script src="source/java/renderer.js"></script>
 </body>

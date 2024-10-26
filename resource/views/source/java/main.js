@@ -1,8 +1,10 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
+let mainWindow
+
 function createWindow() {
-    const win = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         width: 400,
         height: 600,
         frame: false,
@@ -15,7 +17,7 @@ function createWindow() {
         }
     })
 
-    win.loadFile(path.join(__dirname, '..', '..', 'index.html'))
+    mainWindow.loadFile(path.join(__dirname, '..', '..', 'index.html'))
 }
 
 app.whenReady().then(() => {
@@ -32,4 +34,18 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
     }
+})
+
+// Handle window controls
+ipcMain.on('close-window', () => {
+    mainWindow.close()
+})
+
+ipcMain.on('minimize-window', () => {
+    mainWindow.minimize()
+})
+
+ipcMain.on('toggle-start', () => {
+    console.log('Start menu toggled')
+    // Add start menu functionality here
 })
