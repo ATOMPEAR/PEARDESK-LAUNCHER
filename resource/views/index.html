@@ -2,18 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://kit.fontawesome.com https://ka-f.fontawesome.com; script-src 'self' https://kit.fontawesome.com; style-src 'self' 'unsafe-inline' https://ka-f.fontawesome.com">
     
     <title>Electron App</title>
 
-    <link rel="stylesheet" href="source/sass/css/min/fonts.min.css">
-    <link rel="stylesheet" href="source/sass/css/min/index.min.css">
+    <link rel="stylesheet" href="./source/css/index.min.css">
+    <script src="https://kit.fontawesome.com/dbd1c218fe.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="titlebar"></div>
-    <div id="app">
-        <h1>Welcome to Your Electron App</h1>
-    </div>
+    <h1>Hello World</h1>
     
     <script src="source/java/renderer.js"></script>
 </body>

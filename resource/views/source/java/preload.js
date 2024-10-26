@@ -1,8 +1,6 @@
 const { contextBridge } = require('electron')
 
+// Add any IPC or API exposure here if needed in the future
 contextBridge.exposeInMainWorld('electronAPI', {
-  // Add any API methods you want to expose to the renderer here
-  // Example:
-  // sendMessage: (message) => ipcRenderer.send('message', message)
+    // Add API methods here when needed
 })
-

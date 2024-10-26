@@ -4,12 +4,13 @@
   "description": "Electron Application",
   "main": "resource/views/source/java/main.js",
   "scripts": {
-    "prestart": "mkdir -p resource/views/source/sass/css/min",
+    "prestart": "mkdir -p resource/views/source/css",
     "start": "electron .",
     "dev": "npm run sass:compile && nodemon",
     "build": "electron-builder",
-    "sass:compile": "sass resource/views/source/sass/index.sass:resource/views/source/sass/css/index.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/fonts.css --style expanded --no-source-map && sass resource/views/source/sass/index.sass:resource/views/source/sass/css/min/index.min.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/min/fonts.min.css --style compressed --source-map",
-    "sass:watch": "sass --watch resource/views/source/sass/index.sass:resource/views/source/sass/css/index.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/fonts.css --style expanded --no-source-map & sass --watch resource/views/source/sass/index.sass:resource/views/source/sass/css/min/index.min.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/min/fonts.min.css --style compressed --source-map"
+    "sass:compile": "sass resource/views/source/sass/index.sass:resource/views/source/css/index.css --style expanded --source-map && sass resource/views/source/sass/index.sass:resource/views/source/css/index.min.css --style compressed --no-source-map",
+    "sass:watch": "sass --watch resource/views/source/sass/index.sass:resource/views/source/css/index.css --style expanded --source-map",
+    "sass:build": "npm run sass:compile"
   },
   "dependencies": {
     "electron": "^33.0.2"
