@@ -44,10 +44,12 @@ body
             display: flex
             align-items: center
             justify-content: center
-            cursor: pointer
             
             i
                 font-size: 10px
+
+            &:hover
+                color: #01a2ff
     
         .window-controls
             display: flex
@@ -59,13 +61,18 @@ body
                 border-radius: 50%
                 border: none
                 position: relative
-                cursor: pointer
             
             .window-close
                 background: $close-color
+
+                &:hover
+                    background-color: #01a2ff
                         
             .window-minimize
                 background: $minimize-color
+
+                &:hover
+                    background-color: #01a2ff
     
     .toggle-start
         width: 16px
@@ -77,18 +84,20 @@ body
         display: flex
         align-items: center
         justify-content: center
-        cursor: pointer
         -webkit-app-region: no-drag
         
         i
             font-size: 16px
+
+        &:hover
+            color: #01a2ff
 
 .main-content1, .main-content2
     flex: 1
     width: 100%
     background: #444
     display: none
-    overflow-y: auto
+    overflow: hidden
     padding: 0
 
     &.active
@@ -125,11 +134,36 @@ body
         flex: 1
         display: flex
         width: 100%
+        overflow: hidden
 
         .programs-list
             width: 220px
             height: 100%
             background: #ffffff
+            overflow-y: scroll
+            position: relative
+            
+            .scroll-spacer
+                height: 150%
+                width: 1px
+                position: absolute
+                top: 0
+                right: 0
+                opacity: 0
+                pointer-events: none
+            
+            &::-webkit-scrollbar
+                width: 10px
+                background-color: #222222
+            
+            &::-webkit-scrollbar-thumb
+                background-color: #666666
+            
+            &:hover::-webkit-scrollbar-thumb
+                background-color: #01a2ff
+            
+            &::-webkit-scrollbar-track
+                background-color: #222222
 
         .systems-menu
             width: 180px

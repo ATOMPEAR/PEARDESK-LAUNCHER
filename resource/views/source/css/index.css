@@ -39,10 +39,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 .titlebar .titlebar-left .toggle-search i {
   font-size: 10px;
+}
+.titlebar .titlebar-left .toggle-search:hover {
+  color: #01a2ff;
 }
 .titlebar .titlebar-left .window-controls {
   display: flex;
@@ -54,13 +56,18 @@ body {
   border-radius: 50%;
   border: none;
   position: relative;
-  cursor: pointer;
 }
 .titlebar .titlebar-left .window-controls .window-close {
   background: #ffffff;
 }
+.titlebar .titlebar-left .window-controls .window-close:hover {
+  background-color: #01a2ff;
+}
 .titlebar .titlebar-left .window-controls .window-minimize {
   background: #ffffff;
+}
+.titlebar .titlebar-left .window-controls .window-minimize:hover {
+  background-color: #01a2ff;
 }
 .titlebar .toggle-start {
   width: 16px;
@@ -72,11 +79,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   -webkit-app-region: no-drag;
 }
 .titlebar .toggle-start i {
   font-size: 16px;
+}
+.titlebar .toggle-start:hover {
+  color: #01a2ff;
 }
 
 .main-content1, .main-content2 {
@@ -84,7 +93,7 @@ body {
   width: 100%;
   background: #444;
   display: none;
-  overflow-y: auto;
+  overflow: hidden;
   padding: 0;
 }
 .main-content1.active, .main-content2.active {
@@ -121,11 +130,36 @@ body {
   flex: 1;
   display: flex;
   width: 100%;
+  overflow: hidden;
 }
 .main-content1 .content-wrapper .programs-list {
   width: 220px;
   height: 100%;
   background: #ffffff;
+  overflow-y: scroll;
+  position: relative;
+}
+.main-content1 .content-wrapper .programs-list .scroll-spacer {
+  height: 150%;
+  width: 1px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.main-content1 .content-wrapper .programs-list::-webkit-scrollbar {
+  width: 10px;
+  background-color: #222222;
+}
+.main-content1 .content-wrapper .programs-list::-webkit-scrollbar-thumb {
+  background-color: #666666;
+}
+.main-content1 .content-wrapper .programs-list:hover::-webkit-scrollbar-thumb {
+  background-color: #01a2ff;
+}
+.main-content1 .content-wrapper .programs-list::-webkit-scrollbar-track {
+  background-color: #222222;
 }
 .main-content1 .content-wrapper .systems-menu {
   width: 180px;
