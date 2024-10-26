@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add any DOM manipulation or event listeners here when needed
   console.log('Renderer process started');
 
+  const toggleSearchBtn = document.querySelector('.toggle-search');
+  const toggleStartIcon = document.querySelector('.toggle-start i');
+
   // Handle close button
   document.querySelector('.window-close').addEventListener('click', () => {
     window.electronAPI.closeWindow();
@@ -23,16 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (content1.classList.contains('active')) {
       content1.classList.remove('active');
       content2.classList.add('active');
+      window.electronAPI.setWindowWidth(440);
+      toggleSearchBtn.style.display = 'none'; // Hide search button
+      toggleStartIcon.classList.remove('fa-bars');
+      toggleStartIcon.classList.add('fa-chevron-right');
     } else {
       content2.classList.remove('active');
       content1.classList.add('active');
+      window.electronAPI.setWindowWidth(400);
+      toggleSearchBtn.style.display = 'flex'; // Show search button
+      toggleStartIcon.classList.remove('fa-chevron-right');
+      toggleStartIcon.classList.add('fa-bars');
     }
     
     window.electronAPI.toggleStart();
   });
 
   // Handle search form toggle
-  document.querySelector('.toggle-search').addEventListener('click', () => {
+  toggleSearchBtn.addEventListener('click', () => {
     const searchForm = document.querySelector('.search-form');
     searchForm.classList.toggle('hidden');
   });

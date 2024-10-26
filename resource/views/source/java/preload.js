@@ -5,5 +5,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     // Add API methods here when needed
     closeWindow: () => ipcRenderer.send('close-window'),
     minimizeWindow: () => ipcRenderer.send('minimize-window'),
-    toggleStart: () => ipcRenderer.send('toggle-start')
+    toggleStart: () => ipcRenderer.send('toggle-start'),
+    setWindowWidth: (width) => ipcRenderer.send('set-window-width', width)
 })

@@ -59,5 +59,20 @@ ipcMain.on('minimize-window', () => {
 
 ipcMain.on('toggle-start', () => {
     console.log('Start menu toggled')
-    // Add start menu functionality here
+})
+
+// Handle window width changes
+ipcMain.on('set-window-width', (_, width) => {
+    const [currentX, currentY] = mainWindow.getPosition()
+    const screenWidth = screen.getPrimaryDisplay().workAreaSize.width
+    
+    // Adjust x position to keep window aligned to right edge
+    const newX = screenWidth - width
+    
+    mainWindow.setBounds({
+        x: newX,
+        y: currentY,
+        width: width,
+        height: 600
+    }, true) // true enables animation
 })
