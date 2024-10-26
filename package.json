@@ -1,0 +1,22 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "Electron Application",
+  "main": "resource/views/source/java/main.js",
+  "scripts": {
+    "prestart": "mkdir -p resource/views/source/sass/css/min",
+    "start": "electron .",
+    "dev": "npm run sass:compile && nodemon",
+    "build": "electron-builder",
+    "sass:compile": "sass resource/views/source/sass/index.sass:resource/views/source/sass/css/index.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/fonts.css --style expanded --no-source-map && sass resource/views/source/sass/index.sass:resource/views/source/sass/css/min/index.min.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/min/fonts.min.css --style compressed --source-map",
+    "sass:watch": "sass --watch resource/views/source/sass/index.sass:resource/views/source/sass/css/index.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/fonts.css --style expanded --no-source-map & sass --watch resource/views/source/sass/index.sass:resource/views/source/sass/css/min/index.min.css resource/views/source/sass/fonts.sass:resource/views/source/sass/css/min/fonts.min.css --style compressed --source-map"
+  },
+  "dependencies": {
+    "electron": "^33.0.2"
+  },
+  "devDependencies": {
+    "electron-builder": "^25.1.8",
+    "nodemon": "^3.1.7",
+    "sass": "^1.80.4"
+  }
+}

@@ -1,2 +1,4 @@
 node_modules/
 backups/
+resource/views/source/sass/css/
+resource/views/source/sass/css/min/

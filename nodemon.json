@@ -1,0 +1,15 @@
+{
+  "watch": [
+    "resource/views/source/java/main.js",
+    "resource/views/source/java/preload.js",
+    "resource/views/index.html",
+    "resource/views/source/sass/*.sass"
+  ],
+  "ignore": [
+    "node_modules",
+    "resource/views/source/sass/css",
+    "resource/views/source/sass/css/min"
+  ],
+  "ext": "js,html,sass",
+  "exec": "npm run sass:compile && electron ."
+}
