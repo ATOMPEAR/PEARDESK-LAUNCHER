@@ -187,10 +187,45 @@ body {
   height: 100%;
   background: #222222;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  gap: 8px;
 }
-.main-content2 .content {
+.main-content2 .start-sidemenu .sidemenu-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  margin-top: -8px;
+  transition: color 0.2s ease;
+}
+.main-content2 .start-sidemenu .sidemenu-item i {
+  font-size: 16px;
+}
+.main-content2 .start-sidemenu .sidemenu-item:hover, .main-content2 .start-sidemenu .sidemenu-item.active {
+  color: #01a2ff;
+}
+.main-content2 .start-content,
+.main-content2 .account-content,
+.main-content2 .assistant-content,
+.main-content2 .terminal-content,
+.main-content2 .calculator-content {
   flex: 1;
   padding: 16px;
+  display: none;
+}
+.main-content2 .start-content:not(.hidden),
+.main-content2 .account-content:not(.hidden),
+.main-content2 .assistant-content:not(.hidden),
+.main-content2 .terminal-content:not(.hidden),
+.main-content2 .calculator-content:not(.hidden) {
+  display: block;
 }
 
 /*# sourceMappingURL=index.css.map */

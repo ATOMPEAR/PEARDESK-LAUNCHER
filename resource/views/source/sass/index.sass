@@ -191,7 +191,38 @@ body
         height: 100%
         background: #222222
         flex-shrink: 0
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 8px 0
+        gap: 8px
+        
+        .sidemenu-item
+            width: 40px
+            height: 40px
+            display: flex
+            align-items: center
+            justify-content: center
+            background: transparent
+            border: none
+            color: #ffffff
+            margin-top: -8px
+            transition: color 0.2s ease
+            
+            i
+                font-size: 16px
+            
+            &:hover, &.active
+                color: #01a2ff
     
-    .content
+    .start-content,
+    .account-content,
+    .assistant-content,
+    .terminal-content,
+    .calculator-content
         flex: 1
         padding: 16px
+        display: none
+
+        &:not(.hidden)
+            display: block

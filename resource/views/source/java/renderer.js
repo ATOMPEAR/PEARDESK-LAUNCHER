@@ -47,4 +47,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.querySelector('.search-form');
     searchForm.classList.toggle('hidden');
   });
+
+  // Handle sidemenu button clicks
+  const menuItems = document.querySelectorAll('.sidemenu-item');
+  const contents = {
+    'Start': document.querySelector('.start-content'),
+    'Account': document.querySelector('.account-content'),
+    'Assistant': document.querySelector('.assistant-content'),
+    'Terminal': document.querySelector('.terminal-content'),
+    'Calculator': document.querySelector('.calculator-content')
+  };
+
+  // Initially hide all contents
+  Object.values(contents).forEach(content => {
+    if (content) content.classList.add('hidden');
+  });
+
+  // Show start content by default
+  const startContent = contents['Start'];
+  if (startContent) startContent.classList.remove('hidden');
+  menuItems[0].classList.add('active'); // Activate the first (Start) button
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const contentType = item.getAttribute('aria-label');
+      
+      // Hide all contents
+      Object.values(contents).forEach(content => {
+        if (content) content.classList.add('hidden');
+      });
+
+      // Show selected content
+      const selectedContent = contents[contentType];
+      if (selectedContent) selectedContent.classList.remove('hidden');
+
+      // Update active state of menu items
+      menuItems.forEach(menuItem => {
+        menuItem.classList.remove('active');
+      });
+      item.classList.add('active');
+    });
+  });
 });
